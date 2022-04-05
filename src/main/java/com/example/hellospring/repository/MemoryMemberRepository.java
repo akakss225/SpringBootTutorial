@@ -1,9 +1,11 @@
 package com.example.hellospring.repository;
 
 import com.example.hellospring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository // 컴포넌트 스캔 방식
 public class MemoryMemberRepository implements MemberRepository{
 
     private static Map<Long, Member> store = new HashMap<>();
