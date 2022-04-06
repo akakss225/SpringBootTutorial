@@ -1,20 +1,18 @@
 package com.example.hellospring.repository;
 
 import com.example.hellospring.domain.Member;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 public class JpaMemberRepository implements MemberRepository{
 
     // JPA는 EntityManager를 이용해 모든 동작을 수행함.
     private final EntityManager em;
-
-    public JpaMemberRepository(EntityManager em) {
-        this.em = em;
-    }
 
     @Override
     public Member save(Member member) {
