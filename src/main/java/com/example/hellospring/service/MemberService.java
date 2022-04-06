@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,10 +28,11 @@ public class MemberService {
 
     // Sign Up
     public Long join(Member member){
-        // 중복확인
+
         validateDuplicateMember(member);
         memberRepository.save(member);
         return member.getId();
+
     }
 
     // control + T >> Extract Method 검색하면 기존의 코드를 메소드화 시켜줌.
@@ -43,6 +45,7 @@ public class MemberService {
 
     public List<Member> findMembers(){
         return memberRepository.findAll();
+
     }
 
     public Optional<Member> findOne(Long memberId){
